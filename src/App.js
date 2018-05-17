@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import firebase from './Firebase.js';
+import firebase, { auth, provider } from './Firebase.js';
 
 class App extends Component {
   constructor() {
@@ -8,10 +8,13 @@ class App extends Component {
     this.state = {
       currentItem: '',
       username: '',
-      items: []
+      items: [],
+      user: null
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   handleChange(event) {
@@ -63,6 +66,7 @@ class App extends Component {
         <header>
           <div className='wrapper'>
             <h1>Fun Food Friends</h1>
+            {this.state.user ? <button onClick={this.logout}>Log Out</button> : <button onClick={this.login}>Log In</button> }
           </div>
         </header>
         <div className='container'>
