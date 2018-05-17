@@ -60,6 +60,15 @@ class App extends Component {
     itemRef.remove();
   }
 
+  logout() {
+    auth.signOut()
+      .then(() => {
+        this.setState({
+          user: null
+        });
+      });
+  }
+
   render() {
     return (
       <div className="App">
