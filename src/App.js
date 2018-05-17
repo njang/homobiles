@@ -69,6 +69,16 @@ class App extends Component {
       });
   }
 
+  login() {
+    auth.signInWithPopup(provider) 
+      .then((result) => {
+        const user = result.user;
+        this.setState({
+          user
+        });
+      });
+  }
+  
   render() {
     return (
       <div className="App">
