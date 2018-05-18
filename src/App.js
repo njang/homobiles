@@ -98,15 +98,17 @@ class App extends Component {
             <div className='user-profile'>
               <img src={this.state.user.photoURL} />
             </div>
+            <div className='container'>
+              <section className='add-item'>
+                <form onSubmit={this.handleSubmit}>
+                  <input type="text" name="username" placeholder="What's your name?"  onChange={this.handleChange} value={this.state.username} />
+                  <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
+                  <button>Add Item</button>
+                </form>
+              </section>
+            </div>
           </div>
-        //   <div className='container'>
-        //     <section className='add-item'>
-        //       <form onSubmit={this.handleSubmit}>
-        //         <input type="text" name="username" placeholder="What's your name?"  onChange={this.handleChange} value={this.state.username} />
-        //         <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
-        //         <button>Add Item</button>
-        //       </form>
-        //     </section>
+
         //     <section className='display-item'>
         //       <div className='wrapper'>
         //         <ul>
@@ -123,7 +125,6 @@ class App extends Component {
         //       </div>
         //     </section>
         //   </div>
-        // </div>
         :
           <div className='wrapper'>
             <p>You must be logged in to see the potluck list and submit to it.</p>
