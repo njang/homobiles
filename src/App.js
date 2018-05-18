@@ -53,6 +53,11 @@ class App extends Component {
         items: newState
       });
     });
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ user });
+      } 
+    });
   }
 
   removeItem(itemId) {
