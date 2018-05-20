@@ -21,5 +21,6 @@ At the core, this is a simple web app, using React front-end and Firebase back-e
 * Rider would like to see the suggested donation amount for the fare, and make payments. (Optional mobile payments)
 
 ## References
-* All you need is React & Firebase ([link](https://www.codementor.io/yurio/all-you-need-is-react-firebase-4v7g9p4kf))
-* Intro to Firebase and React - CSS-tricks ([link](https://css-tricks.com/intro-firebase-react/))
+* All you need is React & Firebase ([codementor.io](https://www.codementor.io/yurio/all-you-need-is-react-firebase-4v7g9p4kf))
+* Intro to Firebase and React ([css-tricks.com](https://css-tricks.com/intro-firebase-react/))
+* A Complete Firebase in React Authentication Tutorial [2018] ([robinwieruch.de](https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial/))
