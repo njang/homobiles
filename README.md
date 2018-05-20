@@ -5,6 +5,13 @@
 
 At the core, this is a simple web app, using React front-end and Firebase back-end. 3 user groups are considered: drivers, riders & admin.
 
+## Core features
+* User registration
+* Log-in/log-out
+* Ride request
+* Ride accept
+* Fare payment/donation
+
 ## User stories
 
 * Rider woud like to make ride request, showing the name, pickup & destination addresses, and number of passengers.
