@@ -90,7 +90,7 @@ class App extends Component {
       <div className="App">
         <header>
           <div className='wrapper'>
-            <h1>Fun Food Friends</h1>
+            <h1>Homobiles</h1>
             {this.state.user ? <button onClick={this.logout}>Log Out</button> : <button onClick={this.login}>Log In</button> }
           </div>
         </header>
@@ -126,12 +126,9 @@ class App extends Component {
               </section>
             </div>
           </div>
-        // </div>
-
-
         :
           <div className='wrapper'>
-            <p>You must be logged in to see the potluck list and submit to it.</p>
+            <p>You must be logged in to see and make ride requests.</p>
           </div>
         }
       </div>
