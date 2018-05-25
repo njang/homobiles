@@ -6,7 +6,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentItem: '',
+      rideOrigin: '',
+      rideDestin: '',
       username: '',
       items: [],
       user: null
@@ -27,12 +28,15 @@ class App extends Component {
     event.preventDefault();
     const itemsRef = firebase.database().ref('items');
     const item = {
-      title: this.state.currentItem,
+      rideOrigin: this.state.rideOrigin,
+      rideDestin: this.state.rideDestin,
+      title: this.state.rideOrigin,
       user: this.state.username || this.state.user.email
     }
     itemsRef.push(item);
     this.setState({
-      currentItem: '',
+      rideOrigin: '',
+      rideDestin: '',
       username: ''
     });
   }
@@ -46,7 +50,9 @@ class App extends Component {
         newState.push({
           id: item,
           title: items[item].title,
-          user: items[item].user
+          user: items[item].user,
+          rideOrigin: items[item].rideOrigin,
+          rideDestin: items[item].rideDestin
         });
       }
       this.setState({
@@ -103,7 +109,8 @@ class App extends Component {
               <section className='add-item'>
                 <form onSubmit={this.handleSubmit}>
                   <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username || this.state.user.displayName || this.state.user.email} />
-                  <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
+                  <input type="text" name="rideOrigin" placeholder="Starting address" onChange={this.handleChange} value={this.state.rideOrigin} required />
+                  <input type="text" name="rideDestin" placeholder="Destination" onChange={this.handleChange} value={this.state.rideDestin} required />
                   <button>Add Item</button>
                 </form>
               </section>
@@ -114,8 +121,9 @@ class App extends Component {
                       return (
                         <li key={item.id}>
                           <h3>{item.title}</h3>
+                          From {item.rideOrigin} to {item.rideDestin}
                           <p>
-                            brought by: {item.user}}
+                            brought by: {item.user}
                             {item.user === this.state.user.displayName || item.user === this.state.user.email ? <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
                           </p>
                         </li>
