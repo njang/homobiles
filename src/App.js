@@ -97,12 +97,12 @@ class App extends Component {
         {this.state.user ?
           <div>
             <div className='user-profile'>
-              <img alt="User profile" src={this.state.user.photoURL} />
+              <img alt="User profile" height="200px" width="200px" src={this.state.user.photoURL} />
             </div>
             <div className='container'>
               <section className='add-item'>
                 <form onSubmit={this.handleSubmit}>
-                  <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username || this.state.user.email} />
+                  <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username || this.state.user.displayName || this.state.user.email} />
                   <input type="text" name="currentItem" placeholder="What are you bringing?" onChange={this.handleChange} value={this.state.currentItem} />
                   <button>Add Item</button>
                 </form>
@@ -115,7 +115,7 @@ class App extends Component {
                         <li key={item.id}>
                           <h3>{item.title}</h3>
                           <p>
-                            brought by: {item.user}
+                            brought by: {item.user}}
                             {item.user === this.state.user.displayName || item.user === this.state.user.email ? <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
                           </p>
                         </li>
