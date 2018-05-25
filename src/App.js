@@ -111,7 +111,7 @@ class App extends Component {
                   <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username || this.state.user.displayName || this.state.user.email} />
                   <input type="text" name="rideOrigin" placeholder="Starting address" onChange={this.handleChange} value={this.state.rideOrigin} required />
                   <input type="text" name="rideDestin" placeholder="Destination" onChange={this.handleChange} value={this.state.rideDestin} required />
-                  <button>Add Item</button>
+                  <button>Request Ride</button>
                 </form>
               </section>
               <section className='display-item'>
@@ -124,7 +124,7 @@ class App extends Component {
                           From {item.rideOrigin} to {item.rideDestin}
                           <p>
                             brought by: {item.user}
-                            {item.user === this.state.user.displayName || item.user === this.state.user.email ? <button onClick={() => this.removeItem(item.id)}>Remove Item</button> : null}
+                            {item.user === this.state.user.displayName || item.user === this.state.user.email ? <button onClick={() => this.removeItem(item.id)}>Cancel Request</button> : null}
                           </p>
                         </li>
                       )
