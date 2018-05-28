@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import firebase, { auth, provider } from '../Firebase.js';
 
-class App extends Component {
+class Main extends Component {
     constructor() {
       super();
       this.state = {
@@ -95,7 +96,7 @@ class App extends Component {
     
     render() {
       return (
-        <div className="App">
+        <div className="Main">
           <header>
             <div className='wrapper'>
               <h1>Homobiles</h1>
@@ -149,4 +150,4 @@ class App extends Component {
     }
   }
   
-  export default App;
+  export default Main;
