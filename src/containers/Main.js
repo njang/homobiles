@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import firebase, { auth, provider } from '../Firebase.js';
+import Requests from '../components/Requests'
 
 class Main extends Component {
     constructor() {
@@ -109,7 +110,7 @@ class Main extends Component {
                 <img alt="User profile" height="128px" width="128px" src={this.state.user.photoURL} />
               </div>
               <div className='container'>
-                <section className='add-item'>
+                <section className='request-ride'>
                   <form onSubmit={this.handleSubmit}>
                     <input type="text" name="username" placeholder="What's your name?" onChange={this.handleChange} value={this.state.username || this.state.user.displayName || this.state.user.email} />
                     <input type="text" name="rideOrigin" placeholder="Starting address" onChange={this.handleChange} value={this.state.rideOrigin} required />
@@ -117,6 +118,7 @@ class Main extends Component {
                     <button>Request Ride</button>
                   </form>
                 </section>
+                { Requests }
                 <section className='display-item'>
                   <div className='wrapper'>
                     <ul>
