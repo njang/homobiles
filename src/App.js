@@ -6,6 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      requestTime: '',
       rideOrigin: '',
       rideDestin: '',
       username: '',
@@ -28,6 +29,7 @@ class App extends Component {
     event.preventDefault();
     const itemsRef = firebase.database().ref('items');
     const item = {
+      requestTime: Date.now(),
       rideOrigin: this.state.rideOrigin,
       rideDestin: this.state.rideDestin,
       title: this.state.rideOrigin,
@@ -35,6 +37,7 @@ class App extends Component {
     }
     itemsRef.push(item);
     this.setState({
+      requestTime: '',
       rideOrigin: '',
       rideDestin: '',
       username: ''
@@ -52,7 +55,8 @@ class App extends Component {
           title: items[item].title,
           user: items[item].user,
           rideOrigin: items[item].rideOrigin,
-          rideDestin: items[item].rideDestin
+          rideDestin: items[item].rideDestin,
+          requestTime: items[item].requestTime
         });
       }
       this.setState({
@@ -103,7 +107,7 @@ class App extends Component {
         {this.state.user ?
           <div>
             <div className='user-profile'>
-              <img alt="User profile" height="200px" width="200px" src={this.state.user.photoURL} />
+              <img alt="User profile" height="128px" width="128px" src={this.state.user.photoURL} />
             </div>
             <div className='container'>
               <section className='add-item'>
@@ -125,6 +129,9 @@ class App extends Component {
                           <p>
                             Requested by: {item.user}
                             {item.user === this.state.user.displayName || item.user === this.state.user.email ? <button onClick={() => this.removeItem(item.id)}>Cancel Request</button> : null}
+                          </p>
+                          <p>
+                            Requested {Math.round((Date.now() - item.requestTime)/1000/60)} minutes ago
                           </p>
                         </li>
                       )
