@@ -31,7 +31,7 @@ class App extends Component {
       rideOrigin: this.state.rideOrigin,
       rideDestin: this.state.rideDestin,
       title: this.state.rideOrigin,
-      user: this.state.username || this.state.user.email
+      user: this.state.username || this.state.user.displayName || this.state.user.email
     }
     itemsRef.push(item);
     this.setState({
@@ -123,7 +123,7 @@ class App extends Component {
                           <h3>{item.title}</h3>
                           From {item.rideOrigin} to {item.rideDestin}
                           <p>
-                            brought by: {item.user}
+                            Requested by: {item.user}
                             {item.user === this.state.user.displayName || item.user === this.state.user.email ? <button onClick={() => this.removeItem(item.id)}>Cancel Request</button> : null}
                           </p>
                         </li>
